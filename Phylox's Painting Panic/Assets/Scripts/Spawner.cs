@@ -30,34 +30,76 @@ public class Spawner : MonoBehaviour
 
     GameObject NPCCreator()
     {
-        float selector = Random.Range(0, 2);
+        float selector = Random.Range(0, 3);
         GameObject npc = new GameObject();
         if (selector == 0)
         {
-            npc = GameObject.Instantiate(cat);
+            float red = Random.Range(0, 255)/255f;
+            float green = Random.Range(0, 255)/255f;
+            float blue = Random.Range(0, 255)/255f;
+
+            Color randcolor = new Color(red, green, blue);
+            npc = Instantiate(cat);
+            npc.GetComponent<SpriteRenderer>().color = randcolor;
         }
         else if (selector == 1)
         {
-            npc = GameObject.Instantiate(dog);
+            float red = Random.Range(0, 255) / 255f;
+            float green = Random.Range(0, 255) / 255f;
+            float blue = Random.Range(0, 255) / 255f;
+
+            Color randcolor = new Color(red, green, blue);
+            npc = Instantiate(dog);
+            npc.GetComponent<SpriteRenderer>().color = randcolor;
         }
         else
         {
-            npc = GameObject.Instantiate(fox);
+            float red = Random.Range(0, 255) / 255f;
+            float green = Random.Range(0, 255) / 255f;
+            float blue = Random.Range(0, 255) / 255f;
+
+            Color randcolor = new Color(red, green, blue);
+            npc = Instantiate(fox);
+            npc.GetComponent<SpriteRenderer>().color = randcolor;
         }
-        selector = Random.Range(0, 1);
+        selector = Random.Range(0, 2);
         if (selector == 0)
         {
-            GameObject.Instantiate(top).transform.parent = npc.transform;
+            float red = Random.Range(0, 255) / 255f;
+            float green = Random.Range(0, 255) / 255f;
+            float blue = Random.Range(0, 255) / 255f;
+
+            Color randcolor = new Color(red, green, blue);
+            GameObject accesory = new GameObject();
+            accesory = Instantiate(top);
+            accesory.transform.parent = npc.transform;
+            accesory.GetComponent<SpriteRenderer>().color = randcolor;
         }
-        selector = Random.Range(0, 1);
+        selector = Random.Range(0, 2);
         if (selector == 0)
         {
-            GameObject.Instantiate(glasses).transform.parent = npc.transform;
+            float red = Random.Range(0, 255) / 255f;
+            float green = Random.Range(0, 255) / 255f;
+            float blue = Random.Range(0, 255) / 255f;
+
+            Color randcolor = new Color(red, green, blue);
+            GameObject accesory = new GameObject();
+            accesory = Instantiate(glasses);
+            accesory.transform.parent = npc.transform;
+            accesory.GetComponent<SpriteRenderer>().color = randcolor;
         }
-        selector = Random.Range(0, 1);
+        selector = Random.Range(0, 2);
         if (selector == 0)
         {
-            GameObject.Instantiate(hat).transform.parent = npc.transform;
+            float red = Random.Range(0, 255) / 255f;
+            float green = Random.Range(0, 255) / 255f;
+            float blue = Random.Range(0, 255) / 255f;
+
+            Color randcolor = new Color(red, green, blue);
+            GameObject accesory = new GameObject();
+            accesory = Instantiate(hat);
+            accesory.transform.parent = npc.transform;
+            accesory.GetComponent<SpriteRenderer>().color = randcolor;
         }
         return npc;
     }
