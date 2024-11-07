@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         {
             SpawnNPC();
         }
-        SpawnNPC();
+        SpawnTargetNPC();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
         
     }
 
-    GameObject NPCCreator()
+    GameObject SpawnNPC()
     {
         float selector = Random.Range(0, 3);
         GameObject npc = new GameObject();
@@ -101,10 +101,17 @@ public class Spawner : MonoBehaviour
             accesory.transform.parent = npc.transform;
             accesory.GetComponent<SpriteRenderer>().color = randcolor;
         }
+        RelocateNPC(npc);
         return npc;
     }
 
-    void SpawnNPC()
+    void SpawnTargetNPC()
+    {
+        GameObject npc = SpawnNPC();
+        npc.GetComponent<NPC>().MakeTarget();
+    }
+
+    void RelocateNPC(GameObject npc)
     {
         float randX = Random.Range((float)-14.5, (float)14.5);
         float randy = 0;
@@ -128,6 +135,6 @@ public class Spawner : MonoBehaviour
         {
             randy = Random.Range(14, -14);
         }
-        Instantiate(NPCCreator(), new Vector3(randX, randy, 0), Quaternion.identity);
+        npc.transform.position = new Vector3(randX, randy, 0);
     }
 }
