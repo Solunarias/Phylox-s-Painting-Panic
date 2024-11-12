@@ -12,6 +12,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject glasses;
     [SerializeField] GameObject hat;
 
+    private List<GameObject> targets = new List<GameObject>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,12 @@ public class Spawner : MonoBehaviour
             Color randcolor = new Color(red, green, blue);
             npc = Instantiate(dog);
             npc.GetComponent<SpriteRenderer>().color = randcolor;
+            targets.Add(npc);
+
+            foreach(GameObject npc1 in targets)
+            {
+                Destroy(npc1);
+            }
         }
         else
         {
