@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour
 {
 
     private bool isTarget = false;
+    private bool isActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,18 @@ public class NPC : MonoBehaviour
         return isTarget;
     }
 
+    public bool IsActive()
+    {
+        return isActive;
+    }
+
     public void MakeTarget()
     {
         isTarget = true;
+    }
+
+    public void MakeInactive()
+    {
+        isActive = false;
     }
 }
